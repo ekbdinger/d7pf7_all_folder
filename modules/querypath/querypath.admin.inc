@@ -1,5 +1,4 @@
 <?php
-// $Id: querypath.admin.inc,v 1.1.4.1 2010/07/12 01:06:38 ebrand Exp $
 /**
  * Administrative tools for the QueryPath library.
  *

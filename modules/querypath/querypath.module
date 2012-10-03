@@ -1,5 +1,4 @@
 <?php
-// $Id: querypath.module,v 1.4.2.4 2010/12/13 15:28:40 mbutcher Exp $
 
 /**
  * The QueryPath module.

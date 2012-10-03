@@ -1,5 +1,4 @@
 <?php
-// $Id: qpcache.install,v 1.2.2.1 2010/07/12 03:56:58 ebrand Exp $
 
 /**
  * The installer file for qpcache.

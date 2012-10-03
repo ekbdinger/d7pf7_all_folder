@@ -1,5 +1,4 @@
 <?php
-// $Id: qpcache.module,v 1.2.2.2 2010/07/13 03:29:47 ebrand Exp $
 
 /**
  * The main file for qpcache.
@@ -310,7 +309,7 @@ class QPCache {
    * @return
    *   List where position 0 is CRC and 1 is MD5
    */
-  protected function genMultiKey($key) {
+  public static function genMultiKey($key) {
     return array(
     crc32($key),
     md5($key),
