@@ -4,7 +4,7 @@
    * Resets default browser CSS.
 
 -------------------------------------------------------------- */
-
+/*
 html { 
 	margin:0; 
 	padding:0; 
@@ -28,7 +28,7 @@ hgroup, nav, section {
   font-family: inherit;
   vertical-align: baseline;
 }
-
+*/
 /* This helps to make newer HTML5 elements behave like DIVs in older browers */ 
 article, aside, dialog, figure, footer, header,
 hgroup, nav, section {
