@@ -3,8 +3,8 @@
    typography.css
    * Sets up some sensible default typography.
    
-CHANGED LINE 15
-added line 43
+CHANGED LINE font-family   to georgia
+added line around 44   the div was bigger than the p
 -------------------------------------------------------------- */
 
 /* Default font settings.
@@ -41,7 +41,11 @@ h4 img, h5 img, h6 img {
 -------------------------------------------------------------- */
 
 p           { margin: 0 0 1em; line-height: 1.3em; }
+/*added 2 linesline below     div was showing differently than the P  */
 div           { margin: 0 0 1em; line-height: 1.3em; }
+/* tried these      didnt work 
+div.panel-pane { margin: 0 0 0;  line-height: 1em;} */
+div.panel-pane, .pane-content, .view-pp-cck-descriptions, .rounded-shadow-right-edge, .rounded-shadow-left-edge{ margin: 0 0 0; line-height: 1.3em; } 
 p img.left  { float: left; margin: 1.5em 1.5em 1.5em 0; padding: 0; }
 p img.right { float: right; margin: 1.5em 0 1.5em 1.5em; }
 
