@@ -240,20 +240,24 @@ function d7pf_all_content_views_views_default_views() {
   $handler->display->display_options['fields']['term_node_tid']['id'] = 'term_node_tid';
   $handler->display->display_options['fields']['term_node_tid']['table'] = 'node';
   $handler->display->display_options['fields']['term_node_tid']['field'] = 'term_node_tid';
+  $handler->display->display_options['fields']['term_node_tid']['label'] = 'Terms';
   $handler->display->display_options['fields']['term_node_tid']['vocabularies'] = array(
     'vocabulary_2' => 0,
-    'vocabulary_10' => 0,
-    'vocabulary_11' => 0,
-    'vocabulary_12' => 0,
     'vocabulary_5' => 0,
     'vocabulary_9' => 0,
     'vocabulary_3' => 0,
     'vocabulary_7' => 0,
+    'pp_for_setup' => 0,
     'vocabulary_8' => 0,
     'vocabulary_14' => 0,
     'vocabulary_15' => 0,
     'vocabulary_6' => 0,
   );
+  /* Field: Content: Published */
+  $handler->display->display_options['fields']['status']['id'] = 'status';
+  $handler->display->display_options['fields']['status']['table'] = 'node';
+  $handler->display->display_options['fields']['status']['field'] = 'status';
+  $handler->display->display_options['fields']['status']['not'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
@@ -297,6 +301,23 @@ function d7pf_all_content_views_views_default_views() {
   $handler->display->display_options['filters']['uid']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['uid']['expose']['operator'] = 'uid_op';
   $handler->display->display_options['filters']['uid']['expose']['identifier'] = 'uid';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 'All';
+  $handler->display->display_options['filters']['status']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['status']['expose']['operator_id'] = '';
+  $handler->display->display_options['filters']['status']['expose']['label'] = 'Published';
+  $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
+  $handler->display->display_options['filters']['status']['expose']['identifier'] = 'status';
+  $handler->display->display_options['filters']['status']['expose']['remember_roles'] = array(
+    2 => '2',
+    3 => 0,
+    1 => 0,
+    10 => 0,
+    5 => 0,
+  );
   $handler->display->display_options['path'] = 'views/content/all';
 
   /* Display: Paul */
@@ -743,6 +764,7 @@ function d7pf_all_content_views_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_3');
+  $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: User: Uid */
@@ -941,6 +963,7 @@ function d7pf_all_content_views_views_default_views() {
     'totalcount' => 'totalcount',
     'daycount' => 'daycount',
     'name' => 'name',
+    'timestamp_1' => 'timestamp_1',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
@@ -1011,6 +1034,13 @@ function d7pf_all_content_views_views_default_views() {
     ),
     'name' => array(
       'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'timestamp_1' => array(
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -1241,6 +1271,11 @@ function d7pf_all_content_views_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'uid';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Field: Content revision: Updated date */
+  $handler->display->display_options['fields']['timestamp_1']['id'] = 'timestamp_1';
+  $handler->display->display_options['fields']['timestamp_1']['table'] = 'node_revision';
+  $handler->display->display_options['fields']['timestamp_1']['field'] = 'timestamp';
+  $handler->display->display_options['fields']['timestamp_1']['date_format'] = 'short';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -1250,17 +1285,17 @@ function d7pf_all_content_views_views_default_views() {
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['value'] = '0';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['exposed'] = TRUE;
   $handler->display->display_options['filters']['status']['expose']['operator_id'] = '';
   $handler->display->display_options['filters']['status']['expose']['label'] = 'Published';
   $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
   $handler->display->display_options['filters']['status']['expose']['identifier'] = 'status';
-  $handler->display->display_options['filters']['status']['expose']['required'] = TRUE;
+  $handler->display->display_options['filters']['status']['expose']['remember'] = TRUE;
   $handler->display->display_options['filters']['status']['expose']['remember_roles'] = array(
-    2 => '2',
-    3 => 0,
+    2 => 0,
+    3 => '3',
     1 => 0,
     10 => 0,
     5 => 0,
@@ -1354,7 +1389,7 @@ function d7pf_all_content_views_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['path'] = 'content-all-vbo';
+  $handler->display->display_options['path'] = 'content/all/vbo';
   $export['content_all_vbo'] = $view;
 
   return $export;
